@@ -1,0 +1,43 @@
+integrator              = md
+dt                      = 0.002
+nsteps                  = 100000000
+nstxtcout               = 50000
+nstvout                 = 50000
+nstfout                 = 50000
+nstcalcenergy           = 500
+nstenergy               = 5000
+nstlog                  = 50000
+;
+cutoff-scheme           = Verlet
+nstlist                 = 20
+vdwtype                 = Cut-off
+vdw-modifier            = Force-switch
+rvdw_switch             = 1.0
+rvdw                    = 1.2
+rlist                   = 1.2
+rcoulomb                = 1.2
+coulombtype             = PME
+;
+tcoupl                  = Nose-Hoover
+tc_grps                 = System
+tau_t                   = 1.0 
+ref_t                   = 303.15 
+;
+pcoupl                  = Parrinello-Rahman
+pcoupltype              = isotropic
+tau_p                   = 5.0
+compressibility         = 4.5e-5
+ref_p                   = 1.0
+;
+constraints             = h-bonds
+constraint_algorithm    = LINCS
+continuation            = no
+;
+nstcomm                 = 100
+comm_mode               = linear
+comm_grps               = System
+;
+
+gen-seed = -1
+gen-vel = yes
+gen-temp = 303
